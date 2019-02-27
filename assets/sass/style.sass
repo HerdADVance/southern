@@ -1,0 +1,696 @@
+@import "variables.sass"
+
+/* ===== END OF VARIABLES. BEGINNING OF REST OF FRAMEWORK ===== */
+
+/* GLOBAL */
+*
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+
+*:focus
+	outline: none
+
+.mob
+	display: none
+
+body
+	display: flex
+	flex-direction: column
+	font-family: $fontFamily	
+	font-size: $fontSize
+	min-height: 100vh
+
+
+/* BASIC BLOCKS AND RESET */
+main
+	flex: 1
+
+section
+	padding-bottom: $sectionPadding
+	padding-top: $sectionPadding
+
+header, section, main, footer, .row
+	clear: both
+
+header:after, section:after, main:after, footer:after, .row:after
+	clear: both
+	content: ''
+	display: table
+
+h1, h2, h3, h4, h5, h6, ul, li, p
+	margin: 0
+	padding: 0
+
+
+/* LINKS */
+a
+	color: $tertiaryColor
+	text-decoration: none
+
+a:hover
+	text-decoration: underline
+
+a.block-link
+	display: block
+	height: 100%
+	width: 100%
+
+
+/* IMAGES */
+img
+	max-width: 100%
+
+
+/* BUTTONS */
+button, input[type=submit]
+	background-color: $buttonBackground
+	border: none
+	border-radius: $buttonBorderRadius
+	color: $buttonTextColor
+	cursor: pointer
+	font-size: $buttonFontSize
+	outline: none
+	padding: $buttonPadding
+	transition: all ease $buttonTransitionTime
+
+button:hover, input[type=submit]
+	background-color: $buttonBackgroundHover
+	color: $buttonTextColorHover
+button a, button a:hover
+	text-decoration: none
+
+
+
+/* FORMS */
+label
+	color: $labelColor
+	display: block
+	font-size: $labelFontSize
+	font-weight: 700
+	margin-bottom: 3px
+
+input, textarea, select
+	color: $inputColor
+	font-size: $inputFontSize
+	height: $inputHeight
+	margin-bottom: $inputMargin
+	padding: $inputPadding
+	width: 100%
+
+select
+	cursor: pointer
+
+textarea
+	height: $textAreaHeight
+
+form .btn
+	font-size: $formButtonFontSize
+	padding: $formButtonPadding
+	width: $formButtonWidth
+
+
+/* COLUMNS */
+.row
+	display: flex
+.col-1
+	width: 8.3333%
+.col-2
+	width: 16.6666%
+.col-3
+	width: 25%
+.col-4
+	width: 33.3333%
+.col-5
+	width: 41.6666%
+.col-6
+	width: 50%
+.col-7
+	width: 58.3333%
+.col-8
+	width: 66.6666%
+.col-9
+	width: 75%
+.col-10
+	width: 83.3333%
+.col-11
+	width: 91.6666%
+.col-12
+	width: 100%
+[class*="col-"] 
+	float: left
+[class*="col-"]:last-child 
+	margin-right: 0
+.pad-middle [class*="col-"]
+	padding-left: 3%
+	padding-right: 3%
+.pad-middle [class*="col-"]:first-child
+	padding-left: 0
+.pad-middle [class*="col-"]:last-child
+	padding-right: 0
+
+
+/* FLEX */
+.flex
+	align-items: center
+	display: flex
+
+.unflex
+	display: block
+
+.flex-right
+	justify-content: flex-end
+
+/* WRAPS AND PADDING AND MARGIN */
+.wrap
+	margin-left: $wrap
+	margin-right: $wrap
+	width: $widthForWrap
+
+.wrap-bg
+	padding-left: $wrap
+	padding-right: $wrap
+
+.unwrap
+	margin-left: -$wrap 
+.no-pad
+	padding: 0 
+.no-pad-x
+	padding-left: 0
+	padding-right: 0
+.no-pad-y
+	padding-bottom: 0 
+	padding-top: 0
+.no-mar
+	margin: 0 
+.no-mar-x
+	margin-left: 0 
+	margin-right: 0
+.no-mar-y
+	margin-bottom: 0 
+	margin-top: 0
+.no-mar-top
+	margin-top: 0
+.no-mar-bot
+	margin-bottom: 0
+.no-pad-top
+	padding-top: 0
+.no-pad-bot
+	padding-bottom: 0
+
+/* BACKGROUNDS */
+.bg-img
+	background-repeat: no-repeat
+	background-size: cover
+
+/* OVERLAYS */
+.overlay
+	background: rgba($overlayColor,$overlayOpacity)
+	height: 100%
+	position: absolute
+	top: 0
+	width: 100%
+	z-index: 2
+
+.wrap-bg .overlay
+	@extend .unwrap
+
+
+/* COLORS */
+.pri
+	background-color: $primaryColor
+.sec
+	background-color: $secondaryColor
+.ter
+	background-color: $tertiaryColor
+.white
+	background-color: $white
+.black
+	background-color: $black
+.middle-blue
+	background-color: $middleBlue
+.middle-yellow
+	background-color: $middleYellow
+.pri-hover:hover
+	background-color: $primaryColor
+.sec-hover:hover
+	background-color: $secondaryColor
+.ter-hover:hover
+	background-color: $tertiaryColor
+.white-hover
+	background-color: $white
+.black-hover
+	background-color: $black
+
+.pri-text
+	color: $primaryColor
+.sec-text
+	color: $secondaryColor
+.ter-text
+	color: $tertiaryColor
+.white-text
+	color: $white
+.black-text 
+	color: $black
+.middle-blue-text
+	color: $middleBlue
+.middle-yellow-text
+	color: $middleYellow
+.pri-hover-text:hover
+	color: $primaryColor
+.sec-hover-text:hover
+	color: $secondaryColor
+.ter-hover-text:hover
+	color: $tertiaryColor
+.white-hover-text
+	color: $white
+.black-hover-text
+	color: $black
+
+::selection
+	background: $selectedTextBackground 
+	color: $selectedTextColor
+
+
+/* FONT STYLE AND ALIGNMENTS */
+.superlight
+	font-weight: 100
+.light
+	font-weight: 300
+.normal
+	font-weight: 400
+.semibold
+	font-weight: 600
+.bold
+	font-weight: 700
+.italic
+	font-style: italic
+.caps
+	text-transform: capitalize
+.upper
+	text-transform: uppercase
+.lower
+	text-transform: lowercase
+.tight
+	letter-spacing: -1px
+.loose
+	letter-spacing: 1px
+
+.left
+	text-align: left 
+.center
+	margin: 0px auto
+.centered
+	text-align: center
+.right
+	text-align: right
+.pull-left
+	float: left
+.pull-right
+	float: right
+
+/* ASSORTED REUSABLES */
+.rel
+	position: relative
+.abs 
+	position: absolute
+.full
+	width: 100%
+.trans
+	transition: $transitionTime all 
+.on-top
+	z-index: 2
+.on-topper
+	z-index: 3
+.on-toppest
+	z-index: 4
+.under
+	z-index: -1
+.pointer
+	cursor: pointer
+.shadow
+	box-shadow: $basicShadow
+
+
+/* LISTS */
+.ul-inline li
+	display: inline-block
+
+/* BACKGROUND IMAGES */
+.bg-img
+	background-repeat: none
+	background-size: cover
+
+
+/* HEADER */
+.header
+	background-color: $headerColor
+	-webkit-transform: translateZ(0)
+
+.header-info
+	padding-bottom: $headerPadding
+	padding-top: $headerPadding
+
+.header.sticky
+	top: 0
+	transition: $headerTransition
+
+.header.sticky-magic
+	background: rgba($headerColor, $headerStickyOpacity)
+	position: fixed
+	top: 0
+	z-index: 5
+
+.header.sticky-magic .sticky-hide
+	display: none
+
+
+.logo
+	padding: 0.5em 0
+	width: $logoWidth
+
+
+/* NAVS */
+.nav-inline ul
+	display: flex
+
+.nav-inline li
+	position: relative
+
+.nav-inline li ul
+	flex-direction: column
+	left: 0 
+	max-height: 0
+	overflow: hidden
+	position: absolute
+	transition: all ease 0.5s
+	width: 100%
+	z-index: 9
+
+.nav-inline li:hover > ul
+	max-height: 100vh
+
+.nav-inline li ul li
+	display: block
+
+.nav-stretch li
+	flex-grow: 1
+
+.nav-equal li
+	flex-basis: 0
+
+.nav-right ul
+	justify-content: flex-end
+
+
+/* BASIC ELEMENTS */
+h1
+	color: $h1Color
+	font-size: $h1FontSize
+	margin-bottom: $h1Margin
+
+h2
+	color: $h2Color
+	font-size: $h2FontSize
+	margin-bottom: $h2Margin
+
+h3
+	color: $h3Color
+	font-size: $h3FontSize
+	margin-bottom: $h3Margin
+
+p
+	color: $paragraphColor
+	font-size: 1em
+	line-height: $lineHeight
+	margin-top: $paragraphMargin
+
+.p-tight
+	line-height: $lineHeight * 0.925
+
+.p-loose
+	line-height: $lineHeight * 1.075
+
+.p-small
+	font-size: $fontSize * 0.925
+
+.p-smaller
+	font-size: $fontSize * 0.85
+
+.p-large
+	font-size: $fontSize * 1.075
+
+.p-larger
+	font-size: $fontSize * 1.15
+
+.p-more-top
+	margin-top: $paragraphMargin * 1.5
+
+.thin-underline
+	margin-bottom: 1em
+	padding-bottom: 0.875em
+	position: relative
+
+.thin-underline:after
+	content: ""
+	border-bottom: 6px solid $tertiaryColor
+	border-radius: 10px
+	bottom: 0
+	height: 6px
+	left: 40%
+	position: absolute
+	width: 20%
+
+.fa-inline
+	margin-left: 0.5em
+
+
+/* ========== BEGIN ELEMENTS UNIQUE FROM FRAMEWORK ========== */
+
+
+/* ----- HEADER ----- */
+.header
+
+.header-top li
+	color: $white
+	font-size: 0.75em
+	transition: background ease 0.25s
+
+.header-top li.top-phone
+	border-right: 1px solid $white
+	margin-left: $wrap * 2
+	padding-left: 0
+
+.top-apply
+	background: $middleBlue
+	margin-right: -0.3125em
+.top-apply:hover
+	background: $middleBlueLight
+
+.top-donate
+	background: $middleYellow
+.top-donate:hover
+	background: $middleYellowDark
+
+.header-top a
+	color: $white
+	display: block
+	font-size: 0.75em
+	height: 100%
+	padding: 0.625em 1.5em 0.75em
+	width: 100%
+
+.header-button a:hover
+	text-decoration: none
+
+.header-top i
+	font-size: 1.5em
+	margin-right: 0.5em
+
+
+/* ----- MAIN NAV ----- */
+.nav ul
+	list-style: none
+
+.nav li
+	text-align: center
+	transition: background ease 0.25s
+
+.nav li:hover
+	background-color: $primaryLight
+
+.nav a
+	color: $white
+	display: block
+	font-size: $navFontSize
+	height: 100%
+	padding: $navPadding
+	width: 100%
+
+.nav li ul li:hover
+	background-color: $primaryDark
+
+.nav li ul a
+	font-size: $navFontSize * 0.75
+
+
+
+/* ----- SLIDERS ----- */
+.sliders
+	height: $sliderHeight
+	overflow: hidden
+	position: relative
+
+.slider
+	@extend .flex
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: cover
+	display: none
+	height: 100%
+	width: 100%
+
+.slider:first-child
+	display: flex
+
+.slidey .slider
+	display: flex
+	left: -100%
+	position: absolute
+
+.slidey .slider:first-child
+	left: 0
+
+.slider-text h1
+	font-size: 3em
+	margin-bottom: 0.375em
+
+.slider-text h2
+	font-size: 1.5em
+	margin-bottom: 1.625em
+
+.slider-text button
+	border-radius: 8px
+	padding: 0
+
+.slider-text button:hover
+	background: $tertiaryDark
+
+.slider-text a
+	font-size: 0.875em
+	padding: 0.75em 3em
+	
+
+.sliders .overlay
+	background: rgba(0,0,0,0.35)
+
+.slider-arrow
+	color: $sliderArrowColor
+	font-size: $sliderArrowSize
+	position: absolute
+	top: calc(50% - (#{$sliderArrowSize} / 2))
+
+.slider-arrow-left
+	left: $wrap
+
+.slider-arrow-right
+	right: $wrap
+
+
+/* ----- HOME SPLASH ----- */
+.home-splash
+	border-top: 12.5em solid $lightestYellow
+
+.home-splash-boxes
+	margin-bottom: 4em
+	margin-top: -13.5em
+
+.home-splash-box
+	border-radius: 20px
+	height: 14em
+	position: relative
+	width: 90%
+
+.home-splash-box:hover
+	opacity: 0.8
+
+.home-splash-box strong
+	background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(255,255,255,0)),
+	bottom: 0
+	border-bottom-left-radius: 20px
+	border-bottom-right-radius: 20px
+	font-size: 1em
+	left: 0
+	margin-bottom: 0
+	padding: 3% 0
+	position: absolute
+	width: 100%
+
+.home-splash h1
+	font-size: 2em
+
+.home-splash h2
+	font-size: 1em
+
+.home-splash-blurbs
+	margin-top: 5em
+
+.home-splash-blurbs i
+	float: left
+	font-size: 2.5em
+	margin-right: 0.375em
+
+.home-splash-blurbs i:before
+	color: $primaryColor
+
+.home-splash-blurbs-text
+	text-align: left
+
+.home-splash-blurbs .row
+	margin-bottom: 2em
+
+
+
+/* ----- FOOTER ----- */
+footer
+	background-color: $footerColor
+	color: $secondaryColor
+	padding: $footerPadding 0
+
+footer p
+	font-size: $footerFontSize
+
+
+/* ----- MEDIA QUERIES ----- */
+@media (max-width: 2000px) 
+	body
+		font-size: $fontSize * 1.5  
+@media (max-width: 1800px) 
+	body
+		font-size: $fontSize * 1.25  
+
+@media (max-width: 1600px) 
+	body
+		font-size: $fontSize * 1.125  
+
+@media (max-width: 1200px) 
+	body
+		font-size: $fontSize * 0.95  
+
+@media (max-width: 1000px) 
+	body
+		font-size: $fontSize * 0.875  
+
+@media (max-width: 800px) 
+	body
+		font-size: $fontSize * 0.8125
+	.row
+		display: block
+	[class*="col-"]
+		margin-right: 0
+		width: 100%
+
+
+
+
+
